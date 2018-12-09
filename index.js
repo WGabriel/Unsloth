@@ -64,7 +64,7 @@ app.post('/evaluateFace', function(req, res) {
                     "5": {"prioClass": "c-task--danger", "caption": "Zusammenfassung Intercultural Business Communication", "type": "Universität", "date": "13.12.2018"},
                     "6": {"prioClass": "c-task--danger", "caption": "Fall zur Einkommensteuer", "type": "Universität", "date": "15.12.2018"}}};
         } else if (jsonObject[0]["faceAttributes"]["emotion"]["neutral"] > 0.7){
-            userData ={"slothiness" :{"text":"Potentially", "className":"c-btn--warning"},
+            userData ={"slothiness" :{"text":"Medium", "className":"c-btn--warning"},
             "Tasks": {
               "1": {"prioClass": "c-task--success", "caption": "Übungsblatt Mathe Tutorium", "type": "Universität", "date": "12.12.2018"},
               "2": {"prioClass": "c-task--success", "caption": "Case Study schreiben", "type": "Universität", "date": "10.12.2018"},
