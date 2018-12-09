@@ -103,5 +103,10 @@ app.get('/', function(req,res) {
 
 });
 
+app.get('/reset', function (req,res) {
+    pictureUploaded = 0;
+    res.redirect("/");
+})
+
 
 app.listen(process.env.PORT || 1337);
