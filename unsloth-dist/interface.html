@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Productivity</title>
+  <meta name="description" content="Dashboard UI Kit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+<body>
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+  <!-- Add your site or application content here -->
+  <header class="c-navbar">
+    <a class="c-navbar__brand" href="#!">
+      <img src="img/logo.png" alt="Dashboard UI Kit">
+    </a>
+
+    <!-- Navigation items that will be collapes and toggle in small viewports -->
+
+    <!-- // Navigation items  -->
+
+
+  </header>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $(".c-toggle").on("click", ".c-toggle__btn", function (t) {
+        $(".customdate").toggle();
+    })
+
+
+    $.getJSON("/getUserData", function(data) {
+      $("#slothiness").addClass(data["slothiness"]["className"]);
+      $("#slothiness").text(data["slothiness"]["text"]);
+
+      $("#task1prio").addClass(data["Tasks"]["1"]["prioClass"]);
+      $("#task2prio").addClass(data["Tasks"]["2"]["prioClass"]);
+      $("#task3prio").addClass(data["Tasks"]["3"]["prioClass"]);
+      $("#task4prio").addClass(data["Tasks"]["4"]["prioClass"]);
+      $("#task5prio").addClass(data["Tasks"]["5"]["prioClass"]);
+      $("#task6prio").addClass(data["Tasks"]["6"]["prioClass"]);
+
+      $("#task1caption").addClass(data["Tasks"]["1"]["caption"]);
+      $("#task2caption").addClass(data["Tasks"]["2"]["caption"]);
+      $("#task3caption").addClass(data["Tasks"]["3"]["caption"]);
+      $("#task4caption").addClass(data["Tasks"]["4"]["caption"]);
+      $("#task5caption").addClass(data["Tasks"]["5"]["caption"]);
+      $("#task6caption").addClass(data["Tasks"]["6"]["caption"]);
+
+      $("#task1type").addClass(data["Tasks"]["1"]["type"]);
+      $("#task2type").addClass(data["Tasks"]["2"]["type"]);
+      $("#task3type").addClass(data["Tasks"]["3"]["type"]);
+      $("#task4type").addClass(data["Tasks"]["4"]["type"]);
+      $("#task5type").addClass(data["Tasks"]["5"]["type"]);
+      $("#task6type").addClass(data["Tasks"]["6"]["type"]);
+
+      $("#task1date").text(data["Tasks"]["1"]["date"]);
+      $("#task2date").text(data["Tasks"]["2"]["date"]);
+      $("#task3date").text(data["Tasks"]["3"]["date"]);
+      $("#task4date").text(data["Tasks"]["4"]["date"]);
+      $("#task5date").text(data["Tasks"]["5"]["date"]);
+      $("#task6date").text(data["Tasks"]["6"]["date"]);
+
+
+
+
+    });
+
+    $("button").click(function(){
+      var file_data = $("#myimage").prop("files")[0];
+      $.ajax({
+        url: "/evaluateFace",
+        cache: false,
+        contentType: 'octect-stream',
+        processData: false,
+        data: file_data,
+        type: 'post',
+        success: function(data){
+          // data.redirect contains the string URL to redirect to
+          window.location.href = "/";
+
+
+        }
+      });
+    });
+  });
+  </script>
+
+  <div class="c-toolbar u-justify-space-between u-mb-medium">
+    <h4 class="c-toolbar__title u-mr-auto">Your productivity level is</h4>
+
+
+
+    <a class="c-btn c-btn--success" id="slothiness" href="#">Good</a>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-xl">
+        <div class="c-board c-board--info">
+          <div class="c-board__header">
+            <h4 class="c-board__title">Work on this now:
+              <span class="u-text-mute"> 6</span>
+            </h4>
+
+            <div class="c-toggle u-mb-small">
+              <div class="c-toggle__btn is-active">
+                <label class="c-toggle__label" for="toggle1">
+                  <input class="c-toggle__input" id="toggle1" name="toggles" type="radio" checked>Yes
+                </label>
+              </div>
+              <div class="c-toggle__btn">
+                <label class="c-toggle__label" for="toggle2">
+                  <input class="c-toggle__input" id="toggle2" name="toggles" type="radio">No
+                </label>
+              </div>
+            </div><!-- // .c-toggle -->
+          </div>
+
+
+          <div class="c-board__content">
+            <div class="c-task" id="task1prio"> <!-- Die drei Farben sind c-task--success (Produktiv), -->
+              <p class="c-task__content" id="task1caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" "task1type" id="task1type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task1date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="c-task" id="task2prio"> <!-- Das ist der Tag für mittlel produktiv -->
+              <p class="c-task__content" id="task2caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" id="task2type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task2date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+
+            <div class="c-task" id="task3prio"> <!-- Die drei Farben sind c-task--success (Produktiv), -->
+              <p class="c-task__content" id="task3caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" id="task3type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task3date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="c-task" id="task4prio"> <!-- Das ist die Farbe für Rot -->
+              <p class="c-task__content" id="task4caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" id="task4type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task4date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="c-task" id="task5prio"> <!-- Die drei Farben sind c-task--success (Produktiv), -->
+              <p class="c-task__content" id="task5caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" id="task5type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task5date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+            <div class="c-task" id="task6prio"> <!-- Die drei Farben sind c-task--success (Produktiv), -->
+              <p class="c-task__content" id="task6caption">Monetisation (Share revenue with developers)</p>
+              <div class="c-task__indicators">
+
+                <span class="c-task__indicator">
+                  <i class="fa fa-check-square-o" id="task6type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                </span>
+                <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
+                  <i class="fa fa-calendar-check-o"></i><span id="task6date">12:00</span>
+                </span>
+              </div>
+            </div>
+
+
+            <!-- // .c-task -->
+
+
+            <!-- // .c-task -->
+
+            <!-- // .c-board -->
+          </div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+      <script src="js/main.min.js"></script>
+    </body>
+    </html>

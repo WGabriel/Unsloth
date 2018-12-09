@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Log in Horizontal | Dashboard UI Kit</title>
+  <meta name="description" content="Dashboard UI Kit">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/main.min.css">
+  <style>
+
+  .dropzone.dz-clickable .dz-message, .dropzone.dz-clickable .dz-message * {
+    cursor: pointer;
+  }
+  .dropzone .dz-message {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column;
+    flex-flow: column;
+    position: absolute;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin: auto;
+    border-radius: 4px;
+    border: 2px dashed rgba(206,208,218,.5);
+  }
+</style>
+</head>
+<body class="o-page o-page--center">
+  <!--[if lte IE 9]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+
+    $("button").click(function(){
+      var file_data = $("#myimage").prop("files")[0];
+      $.ajax({
+        url: "/evaluateFace",
+        cache: false,
+        contentType: 'octect-stream',
+        processData: false,
+        data: file_data,
+        type: 'post',
+        success: function(data){
+          // data.redirect contains the string URL to redirect to
+          window.location.href = "/";
+
+
+        }
+      });
+    });
+  });
+  </script>
+
+  <div class="o-page__card o-page__card--horizontal">
+    <div class="c-card c-login-horizontal">
+
+      <div class="c-login__content-wrapper">
+        <header class="c-login__header">
+          <a class="c-login__icon c-login__icon--rounded c-login__icon--left" href="#!">
+            <img src="img/logo-login.svg" alt="Dashboard's Logo">
+          </a>
+
+          <h2 class="c-login__title">Time to be productive</h2>
+        </header>
+
+
+
+        <div class="row">
+          <div class="col-12">
+            <p class="u-text-mute u-text-uppercase u-mb-medium"></p>
+
+            <form action="/file-upload" ><!--class="dropzone" id="custom-dropzone" style="height: 180px;"-->
+              <!--<div class="dz-message" data-dz-message>
+              <i class="dz-icon fa fa-cloud-upload"></i>
+              <span>Click here to upload a selfie!</span>
+            </div>-->
+
+            <!--<div class="fallback">-->
+            <input id="myimage" name="file" type="file" multiple>
+            <!--</div>-->
+          </form>
+        </div>
+      </div>
+
+
+
+      <button class="c-btn c-btn--success c-btn--f    ullwidth" id="submitbutton" >Time to find out!</button>
+
+    </div>
+
+    <div class="c-login__content-image">
+      <img src="img/login2.jpg" alt="Welcome to Dashboard UI Kit">
+
+      <h3>Find out about your productivity</h3>
+      <p class="u-text-large">Our app wants to help you with something we are not sure about yet</p>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.min.js"></script>
+</body>
+</html>
