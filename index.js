@@ -82,7 +82,7 @@ app.post('/evaluateFace', function(req, res) {
             "4": {"prioClass": "c-task--success", "caption": "Übungsblatt Mathe Tutorium", "type": "Universität", "date": "12.12.2018"},
             "5": {"prioClass": "c-task--danger", "caption": "Zusammenfassung Intercultural Business Communication", "type": "Universität", "date": "13.12.2018"},
             "6": {"prioClass": "c-task--success", "caption": "Case Study schreiben", "type": "Universität", "date": "10.12.2018"},
-            }};
+          }};
           }
         console.log(JSON.stringify(jsonObject[0]["faceAttributes"]["emotion"]));
         res.send();
@@ -108,10 +108,12 @@ app.get('/', function(req,res) {
 
 });
 
+
 app.get('/reset', function (req,res) {
     pictureUploaded = 0;
     res.redirect("/");
 })
+
 
 
 app.listen(process.env.PORT || 1337);

@@ -24,9 +24,10 @@
 
   <!-- Add your site or application content here -->
   <header class="c-navbar">
-    <a class="c-navbar__brand" href="#!">
-      <img src="img/logo.png" alt="Dashboard UI Kit">
+    <a class="c-navbar__brand" href="/reset">
+      <img src="img/logo.png" alt="Neuer Versuch">
     </a>
+
 
     <!-- Navigation items that will be collapes and toggle in small viewports -->
 
@@ -53,19 +54,19 @@
       $("#task5prio").addClass(data["Tasks"]["5"]["prioClass"]);
       $("#task6prio").addClass(data["Tasks"]["6"]["prioClass"]);
 
-      $("#task1caption").addClass(data["Tasks"]["1"]["caption"]);
-      $("#task2caption").addClass(data["Tasks"]["2"]["caption"]);
-      $("#task3caption").addClass(data["Tasks"]["3"]["caption"]);
-      $("#task4caption").addClass(data["Tasks"]["4"]["caption"]);
-      $("#task5caption").addClass(data["Tasks"]["5"]["caption"]);
-      $("#task6caption").addClass(data["Tasks"]["6"]["caption"]);
+      $("#task1caption").text(data["Tasks"]["1"]["caption"]);
+      $("#task2caption").text(data["Tasks"]["2"]["caption"]);
+      $("#task3caption").text(data["Tasks"]["3"]["caption"]);
+      $("#task4caption").text(data["Tasks"]["4"]["caption"]);
+      $("#task5caption").text(data["Tasks"]["5"]["caption"]);
+      $("#task6caption").text(data["Tasks"]["6"]["caption"]);
 
-      $("#task1type").addClass(data["Tasks"]["1"]["type"]);
-      $("#task2type").addClass(data["Tasks"]["2"]["type"]);
-      $("#task3type").addClass(data["Tasks"]["3"]["type"]);
-      $("#task4type").addClass(data["Tasks"]["4"]["type"]);
-      $("#task5type").addClass(data["Tasks"]["5"]["type"]);
-      $("#task6type").addClass(data["Tasks"]["6"]["type"]);
+      $("#task1type").text(data["Tasks"]["1"]["type"]);
+      $("#task2type").text(data["Tasks"]["2"]["type"]);
+      $("#task3type").text(data["Tasks"]["3"]["type"]);
+      $("#task4type").text(data["Tasks"]["4"]["type"]);
+      $("#task5type").text(data["Tasks"]["5"]["type"]);
+      $("#task6type").text(data["Tasks"]["6"]["type"]);
 
       $("#task1date").text(data["Tasks"]["1"]["date"]);
       $("#task2date").text(data["Tasks"]["2"]["date"]);
@@ -73,8 +74,6 @@
       $("#task4date").text(data["Tasks"]["4"]["date"]);
       $("#task5date").text(data["Tasks"]["5"]["date"]);
       $("#task6date").text(data["Tasks"]["6"]["date"]);
-
-
 
 
     });
@@ -137,7 +136,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" "task1type" id="task1type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task1type">Übungsblatt</span> <!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task1date">12:00</span>
@@ -150,7 +149,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" id="task2type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task2type">Übungsblatt</span> <!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task2date">12:00</span>
@@ -164,7 +163,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" id="task3type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task3type">Übungsblatt</span> <!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task3date">12:00</span>
@@ -177,7 +176,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" id="task4type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task4type">Übungsblatt</span><!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task4date">12:00</span>
@@ -190,7 +189,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" id="task5type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task5type">Übungsblatt</span> <!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task5date">12:00</span>
@@ -203,7 +202,7 @@
               <div class="c-task__indicators">
 
                 <span class="c-task__indicator">
-                  <i class="fa fa-check-square-o" id="task6type"></i>Übungsblatt <!-- hier parst ihr den Typ der Aufgabe-->
+                  <i class="fa fa-check-square-o"></i><span id="task6type">Übungsblatt</span> <!-- hier parst ihr den Typ der Aufgabe-->
                 </span>
                 <span class="c-badge c-badge--xsmall c-badge--secondary customdate">
                   <i class="fa fa-calendar-check-o"></i><span id="task6date">12:00</span>
