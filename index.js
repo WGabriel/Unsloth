@@ -45,48 +45,50 @@ app.post('/evaluateFace', function(req, res) {
     };
     request.post(options, (error, response, body) => {
         if (error) {
-
             console.log('Error: ', error);
             return;
         }
         let jsonResponse = JSON.stringify(JSON.parse(body), null, '  ');
         if (jsonResponse.includes("error")) {
             pictureUploaded = -1;
-        }
-        else {
+        } else {
             pictureUploaded = 1;
         }
         jsonObject = JSON.parse(body);
-        if (jsonObject[0]["faceAttributes"]["emotion"]["happiness"] > 0.5) {
+        if (jsonObject[0]["faceAttributes"]["emotion"]["happiness"] > 0.7) {
             userData ={"slothiness" :{"text":"Awesome", "className":"c-btn--success"},
-                "Tasks": {"1":{"prioClass": "c-task--danger", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "01.01.2019"},
+                "Tasks": {"1":{"prioClass": "c-task--danger", "caption": "Case Study schreiben", "type": "Universität", "date": "10.12.2018"},
+                    "2":{"prioClass": "c-task--danger", "caption": "Einladungsschreiben verschicken", "type": "Winterball", "date": "10.12.2018"},
+                    "3": {"prioClass": "c-task--warning", "caption": "Programmieraufgabe", "type": "Praktische Übung", "date": "11.12.2018"},
+                    "4": {"prioClass": "c-task--warning", "caption": "Übungsblatt Mathe Tutorium", "type": "Universität", "date": "12.12.2018"},
+                    "5": {"prioClass": "c-task--success", "caption": "Zusammenfassung Intercultural Business Communication", "type": "Universität", "date": "13.12.2018"},
+                    "6": {"prioClass": "c-task--success", "caption": "Fall zur Einkommensteuer", "type": "Universität", "date": "15.12.2018"}}};
+        } else if (jsonObject[0]["faceAttributes"]["emotion"]["neutral"] > 0.7){
+            userData ={"slothiness" :{"text":"Potential", "className":"c-btn--warning"},
+                "Tasks": {"1":{"prioClass": "c-task--danger", "caption": "TEST1", "type": "Übungsblatt", "date": "01.01.2019"},
                     "2":{"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "02.01.2019"},
                     "3": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "03.01.2019"},
                     "4": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "04.01.2019"},
                     "5": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "05.01.2019"},
                     "6": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "06.01.2019"}}};
-        }
-        else {
-            userData ={"slothiness" :{"text":"Potential", "className":"c-btn--danger"},
-                "Tasks": {"1":{"prioClass": "c-task--danger", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "01.01.2019"},
-                    "2":{"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "02.01.2019"},
-                    "3": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "03.01.2019"},
-                    "4": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "04.01.2019"},
-                    "5": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "05.01.2019"},
-                    "6": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "06.01.2019"}}};
+        } else {
+          userData ={"slothiness" :{"text":"Danger", "className":"c-btn--danger"},
+              "Tasks": {"1":{"prioClass": "c-task--danger", "caption": "TEST2", "type": "Übungsblatt", "date": "01.01.2019"},
+                  "2":{"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "02.01.2019"},
+                  "3": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "03.01.2019"},
+                  "4": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "04.01.2019"},
+                  "5": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "05.01.2019"},
+                  "6": {"prioClass": "c-task--success", "caption": "Monetisation (Share revenue with developers)", "type": "Übungsblatt", "date": "06.01.2019"}}};
         }
 
         console.log(JSON.stringify(jsonObject[0]["faceAttributes"]["emotion"]));
         res.send();
     });
-
 });
-
 
 app.get('/getUserData', function(req, res){
 
 res.json(userData);
-
 });
 
 app.get('/', function(req,res) {
