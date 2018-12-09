@@ -76,12 +76,12 @@ app.post('/evaluateFace', function(req, res) {
         } else {
           userData ={"slothiness" :{"text":"Danger", "className":"c-btn--danger"},
           "Tasks": {
-            "1": {"prioClass": "c-task--warning", "caption": "Fall zur Einkommensteuer", "type": "Universität", "date": "15.12.2018"},
-            "2": {"prioClass": "c-task--danger", "caption": "Einladungsschreiben verschicken", "type": "Winterball", "date": "10.12.2018"},
+            "1": {"prioClass": "c-task--success", "caption": "Fall zur Einkommensteuer", "type": "Universität", "date": "15.12.2018"},
+            "2": {"prioClass": "c-task--success", "caption": "Einladungsschreiben verschicken", "type": "Winterball", "date": "10.12.2018"},
             "3": {"prioClass": "c-task--warning", "caption": "Programmieraufgabe", "type": "Praktische Übung", "date": "11.12.2018"},
-            "4": {"prioClass": "c-task--success", "caption": "Übungsblatt Mathe Tutorium", "type": "Universität", "date": "12.12.2018"},
+            "4": {"prioClass": "c-task--warning", "caption": "Übungsblatt Mathe Tutorium", "type": "Universität", "date": "12.12.2018"},
             "5": {"prioClass": "c-task--danger", "caption": "Zusammenfassung Intercultural Business Communication", "type": "Universität", "date": "13.12.2018"},
-            "6": {"prioClass": "c-task--success", "caption": "Case Study schreiben", "type": "Universität", "date": "10.12.2018"},
+            "6": {"prioClass": "c-task--danger", "caption": "Case Study schreiben", "type": "Universität", "date": "10.12.2018"},
           }};
           }
         console.log(JSON.stringify(jsonObject[0]["faceAttributes"]["emotion"]));
